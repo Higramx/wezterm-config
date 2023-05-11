@@ -24,25 +24,8 @@ local config = {
     font = wezterm.font("FiraCode NF"),
     colors = require("lua.style.colors"),
     prefer_egl = false,
-    -- webgpu_preferred_adapter = {
-    --     backend = "Vulkan",
-    --     device = 6918,
-    --     device_type = "DiscreteGpu",
-    --     driver = "NVIDIA",
-    --     driver_info = "531.68",
-    --     name = "NVIDIA GeForce GTX 1080 Ti",
-    --     vendor = 4318,
-    -- },
     warn_about_missing_glyphs = false,
-    --     backend = "Vulkan",
-    --     device = 6918,
-    --     device_type = "DiscreteGpu",
-    --     name = "NVIDIA GeForce GTX 1080 Ti",
-    --     vendor = 4318,
-    -- },
-    -- debug_key_events = true,
     swap_backspace_and_delete = true,
-    -- front_end = "WebGpu",
     animation_fps = 60,
     cursor_blink_rate = 1000,
     window_background_opacity = 0.80,
@@ -55,10 +38,6 @@ local config = {
     },
     tab_max_width = 26,
     command_palette_bg_color = "rgba(19 17 16 50%)",
-    --[[ window_background_image = "H:\\Pictures\\Wallpapers\\Better Miyazaki\\gjmbZXv_.png",
-    window_background_image_hsb = {
-        brightness = 0.2
-    }, ]]
     -- enable_scroll_bar = true,
     -- window_close_confirmation = "NeverPrompt",
     inactive_pane_hsb = {
@@ -90,8 +69,6 @@ local config = {
     leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 2000 },
     keys = require("lua.mappings"),
     -- show_tab_index_in_tab_bar = true,
-    -- tab_bar_style = require("lua.tab_bar_style"),
-    --
     --set_environment_variables = {},
     key_tables = {
         pane_mode = require("lua.modes.pane_mode"),
