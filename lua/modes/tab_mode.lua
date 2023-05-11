@@ -1,0 +1,38 @@
+local wezterm = require("wezterm")
+local act = wezterm.action
+
+return {
+    { key = 'h',          action = act.ActivateTabRelative(-1) },
+    { key = 'l',          action = act.ActivateTabRelative(1) },
+    { key = "h",          mods = "SHIFT",                                        action = act.MoveTabRelative(-1) },
+    { key = "l",          mods = "SHIFT",                                        action = act.MoveTabRelative(1) },
+    { key = 'LeftArrow',  action = act.ActivateTabRelative(-1) },
+    { key = 'RightArrow', action = act.ActivateTabRelative(1) },
+    { key = "LeftArrow",  mods = "SHIFT",                                        action = act.MoveTabRelative(-1) },
+    { key = "RightArrow", mods = "SHIFT",                                        action = act.MoveTabRelative(1) },
+    { key = "1",          action = wezterm.action({ ActivateTab = 0 }) },
+    { key = "2",          action = wezterm.action({ ActivateTab = 1 }) },
+    { key = "3",          action = wezterm.action({ ActivateTab = 2 }) },
+    { key = "4",          action = wezterm.action({ ActivateTab = 3 }) },
+    { key = "5",          action = wezterm.action({ ActivateTab = 4 }) },
+    { key = "6",          action = wezterm.action({ ActivateTab = 5 }) },
+    { key = "7",          action = wezterm.action({ ActivateTab = 6 }) },
+    { key = "8",          action = wezterm.action({ ActivateTab = 7 }) },
+    { key = "9",          action = wezterm.action({ ActivateTab = 8 }) },
+    { key = "1",          mods = "SHIFT",                                        action = act.MoveTab(0) },
+    { key = "2",          mods = "SHIFT",                                        action = act.MoveTab(1) },
+    { key = "3",          mods = "SHIFT",                                        action = act.MoveTab(2) },
+    { key = "4",          mods = "SHIFT",                                        action = act.MoveTab(3) },
+    { key = "5",          mods = "SHIFT",                                        action = act.MoveTab(4) },
+    { key = "6",          mods = "SHIFT",                                        action = act.MoveTab(5) },
+    { key = "7",          mods = "SHIFT",                                        action = act.MoveTab(6) },
+    { key = "8",          mods = "SHIFT",                                        action = act.MoveTab(7) },
+    { key = 't',          action = act.SpawnCommandInNewTab({ cwd = "C:\\dev" }) },
+    {
+        key = "x",
+        mods = "SHIFT",
+        action = wezterm.action({ CloseCurrentTab = { confirm = true } }),
+    },
+    { key = 'c',      mods = "CTRL",           action = act.PopKeyTable },
+    { key = 'Escape', action = act.PopKeyTable },
+}
