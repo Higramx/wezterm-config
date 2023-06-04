@@ -7,8 +7,7 @@ require("lua.wezterm_on")
 --TODO
 --status for other states than LEADER
 --make pane mode for adjusting size and switching and jumping also split/make panes
---tab_mode, expand it to be useful, find better shortcut than ctrl shift alt t
---
+--tab_mode
 --
 -------------------------------
 
@@ -21,11 +20,11 @@ local config = {
     check_for_updates = false,
     color_scheme = require("lua.style.colorscheme"),
     -- font = wezterm.font("CaskaydiaCove NF"),
-    font = wezterm.font("FiraCode NF"),
+    font = wezterm.font("FiraCode Nerd Font"),
     colors = require("lua.style.colors"),
-    prefer_egl = false,
+    prefer_egl = true,
     warn_about_missing_glyphs = false,
-    swap_backspace_and_delete = true,
+    -- swap_backspace_and_delete = true,
     animation_fps = 60,
     cursor_blink_rate = 1000,
     window_background_opacity = 0.80,

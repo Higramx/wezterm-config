@@ -2,10 +2,10 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 return {
-    { key = "h",          action = wezterm.action({ ActivatePaneDirection = "Left" }) },
-    { key = "j",          action = wezterm.action({ ActivatePaneDirection = "Down" }) },
-    { key = "k",          action = wezterm.action({ ActivatePaneDirection = "Up" }) },
-    { key = "l",          action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+    -- { key = "h",          action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+    -- { key = "j",          action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+    -- { key = "k",          action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+    -- { key = "l",          action = wezterm.action({ ActivatePaneDirection = "Right" }) },
     { key = "LeftArrow",  action = wezterm.action({ ActivatePaneDirection = "Left" }) },
     { key = "DownArrow",  action = wezterm.action({ ActivatePaneDirection = "Down" }) },
     { key = "UpArrow",    action = wezterm.action({ ActivatePaneDirection = "Up" }) },

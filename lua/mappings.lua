@@ -25,15 +25,15 @@ return {
             prevent_fallback = true,
         }
     },
-    { key = "q", mods = "LEADER",      action = act({ CloseCurrentPane = { confirm = true } }), },
+    { key = "q", mods = "LEADER",       action = act({ CloseCurrentPane = { confirm = true } }), },
     {
         key = 'p',
         mods = 'CTRL|ALT',
         action = wezterm.action.ActivateCommandPalette,
     },
     -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
-    { key = "a", mods = "LEADER|CTRL", action = act({ SendString = "\x01" }) },
-    { key = "f", mods = "LEADER|CTRL", action = act.Search { Regex = "" }, },
+    { key = "a", mods = "LEADER|CTRL",  action = act({ SendString = "\x01" }) },
+    { key = "f", mods = "LEADER|SHIFT", action = act.Search { Regex = "" }, },
     -- { key = "y", mods = "LEADER",      action = act.ActivateCopyMode },
     {
         key = "t",

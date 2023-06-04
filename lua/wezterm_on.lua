@@ -9,13 +9,13 @@ local wezterm = require("wezterm")
 
 -- local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
 -- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-local SOLID_LEFT_ARROW = "<"
-local SOLID_RIGHT_ARROW = ">"
+-- local SOLID_LEFT_ARROW = "<"
+-- local SOLID_RIGHT_ARROW = ">"
 
-wezterm.on("gui-startup", function(window)
-    -- window:maximize()
-    window:toggle_fullscreen()
-end)
+-- wezterm.on("gui-startup", function(window)
+--     -- window:maximize()
+--     window:toggle_fullscreen()
+-- end)
 
 wezterm.on('update-status', function(window) -- removed , pane
     local clock = wezterm.format {
@@ -68,6 +68,10 @@ function make_symbol(text)
         return " "
     elseif text == "nvim" then
         return " "
+    elseif text == "node" then
+        return " "
+    elseif text == "git" then
+        return " "
     elseif text == "python" then
         return " "
     elseif text == "wslhost" then
