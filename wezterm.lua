@@ -24,7 +24,6 @@ local config = {
     colors = require("lua.style.colors"),
     prefer_egl = true,
     warn_about_missing_glyphs = false,
-    -- swap_backspace_and_delete = true,
     animation_fps = 60,
     cursor_blink_rate = 1000,
     window_background_opacity = 0.80,
@@ -37,7 +36,6 @@ local config = {
     },
     tab_max_width = 26,
     command_palette_bg_color = "rgba(19 17 16 50%)",
-    -- enable_scroll_bar = true,
     -- window_close_confirmation = "NeverPrompt",
     inactive_pane_hsb = {
         hue = 1.0,
@@ -60,14 +58,9 @@ local config = {
         { label = "CMD",         args = { "cmd", "-NoLogo" } },
     },
     disable_default_key_bindings = true,
-    -- leader = {
-    --     key = "a",
-    --     mods = "CTRL|ALT",
-    --     timeout_milliseconds = 2000,
-    -- },
     leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 2000 },
     keys = require("lua.mappings"),
-    -- show_tab_index_in_tab_bar = true,
+    show_tab_index_in_tab_bar = true,
     --set_environment_variables = {},
     key_tables = {
         pane_mode = require("lua.modes.pane_mode"),
@@ -75,14 +68,10 @@ local config = {
     },
 }
 
-
 -- config.colors = require("lua.colors.rose-pine").colors()
 -- config.window_frame = require("lua.colors.rose-pine").window_frame()
 
 --config.front_end = "Software" -- OpenGL doesn't work quite well with RDP.
 config.term = "" -- Set to empty so FZF works on windows
-
--- Find installed visual studio version(s) and add their compilation
--- environment command prompts to the menu
 
 return config
