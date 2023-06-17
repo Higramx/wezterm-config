@@ -5,11 +5,12 @@ local wezterm = require("wezterm")
 require("lua.wezterm_on")
 -------------------------------
 --TODO
---status for other states than LEADER
---make pane mode for adjusting size and switching and jumping also split/make panes
---tab_mode
---
 -------------------------------
+
+local rose_pine = require('lua/style/rosepine/lua/rose-pine').colors()
+local rp_window_frame = require('lua/style/rosepine/lua/rose-pine').window_frame()
+
+local catppuccin_gruv = require("lua.style.colors")
 
 local config = {
     set_environment_variables = {
@@ -18,10 +19,10 @@ local config = {
         prompt = "$E]7;file://localhost/$P$E\\$E[35m$T$H$H$H$S$E[36mCMD$G$E[93m$P$E[36m$G$E[0m ",
     },
     check_for_updates = false,
-    color_scheme = require("lua.style.colorscheme"),
     -- font = wezterm.font("CaskaydiaCove NF"),
     font = wezterm.font("FiraCode Nerd Font"),
-    colors = require("lua.style.colors"),
+    color_scheme = require("lua.style.colorscheme"),
+    colors = catppuccin_gruv,
     prefer_egl = true,
     warn_about_missing_glyphs = false,
     animation_fps = 60,
@@ -43,9 +44,7 @@ local config = {
         brightness = 1.0,
     },
     window_decorations = "INTEGRATED_BUTTONS|RESIZE",
-    -- default_gui_startup_args = { window:maximize() },
     use_fancy_tab_bar = false,
-    -- tab_bar_at_bottom = true,
     default_prog = { "pwsh", "-NoLogo" },
     default_cwd = "C:\\dev",
     font_size = 18.0,

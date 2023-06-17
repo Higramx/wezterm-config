@@ -90,47 +90,62 @@ function current_working(pane, title, max_width)
         sda = wuu
         path = wii
     end
-    if string.len(title .. sda .. path) > max_width then
-        sd = sda:sub(1, 1)
-        return title .. sd .. ":~" .. wezterm.truncate_left(path, max_width - string.len(title .. sda) - 1)
+    if title ~= nil and sda ~= nil then
+        if string.len(title .. sda .. path) > max_width then
+            local sd = sda:sub(1, 1)
+            return title .. sd .. ":~" .. wezterm.truncate_left(path, max_width - string.len(title .. sda) - 1)
+        else
+            return title .. sda .. path
+        end
     else
-        return title .. sda .. path
+        return nil
     end
 end
 
 wezterm.on(
     "format-tab-title",
     function(tab, tabs, panes, config, hover, max_width)
-        local title = tab_title(tab)
-        local pane = tab.active_pane.current_working_dir
-        title = checkadmin(title)
-        title = title .. tab.tab_index + 1 .. "|"
-        title = current_working(pane, title, max_width)
-        if tab.is_active then
-            title = "  " .. title
-        else
-            title = " " .. title .. " "
+        if tab_title(tab) ~= nil and tab_title(tab) ~= "" then
+            local title = tab_title(tab)
+            if title ~= nil and title ~= "" then
+                local pane = tab.active_pane.current_working_dir
+                local thingo = checkadmin(title)
+                if thingo ~= nil then
+                    title = thingo
+                end
+                if tab.tab_index ~= nil and title ~= nil then
+                    title = title .. tab.tab_index + 1 .. "|"
+                end
+                local thing = current_working(pane, title, max_width)
+                if thing ~= nil then
+                    title = thing
+                end
+                if tab.is_active then
+                    title = "  " .. title
+                else
+                    title = " " .. title .. " "
+                end
+                local foreground = '#d5c4a1'
+                if tab.is_active then
+                    foreground = '#d59471'
+                elseif hover then
+                    foreground = '#d5c4a1'
+                else
+                    foreground = '#d5c4a1'
+                end
+                return {
+                    -- { Background = { Color = "rgba(14 13 11 85%)" } },
+                    -- { Foreground = { Color = "rgba(14 13 11 0%)" } },
+                    -- { Text = SOLID_LEFT_ARROW },
+                    { Background = { Color = "rgba(14 13 11 85%)" } },
+                    { Foreground = { Color = foreground } },
+                    { Text = title },
+                    -- { Background = { Color = "rgba(14 13 11 85%)" } },
+                    -- { Foreground = { Color = "rgba(14 13 11 0%)" } },
+                    -- { Text = SOLID_RIGHT_ARROW },
+                }
+            end
         end
-
-        local foreground = '#d5c4a1'
-        if tab.is_active then
-            foreground = '#d59471'
-        elseif hover then
-            foreground = '#d5c4a1'
-        else
-            foreground = '#d5c4a1'
-        end
-        return {
-            -- { Background = { Color = "rgba(14 13 11 85%)" } },
-            -- { Foreground = { Color = "rgba(14 13 11 0%)" } },
-            -- { Text = SOLID_LEFT_ARROW },
-            { Background = { Color = "rgba(14 13 11 85%)" } },
-            { Foreground = { Color = foreground } },
-            { Text = title },
-            -- { Background = { Color = "rgba(14 13 11 85%)" } },
-            -- { Foreground = { Color = "rgba(14 13 11 0%)" } },
-            -- { Text = SOLID_RIGHT_ARROW },
-        }
     end
 )
 
